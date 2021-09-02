@@ -1,0 +1,8 @@
+name: MAmbiance
+version: ${project.version}
+main: io.github.craftizz.mambiance.MAmbiance
+api-version: 1.17
+authors: [ Craftizz, b01w ]
+description: Custom Plugin of MinEconomy
+
+depend: [ WorldGuard ]

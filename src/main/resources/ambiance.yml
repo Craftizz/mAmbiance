@@ -1,0 +1,67 @@
+#
+########################################################
+#
+#         Ambiance Type [ FOLLOW, LOCATION ]
+#
+# 1. FOLLOW - The sound will follow the player
+# 2. LOCATION - The sound will be played on a location
+#
+########################################################
+#
+#          SingleSound Type [ STATIC, DYNAMIC ]
+#
+# 1. STATIC - Only one sound will be played
+# 2. DYNAMIC - Different sound depending on the time
+#
+########################################################
+#
+
+# Follow Type and Static Type Example
+region1:
+  # What type of Ambiance should be used?
+  ambiance-type: FOLLOW
+  # Configure the sound settings
+  sound-setting:
+    # What type of sound should be used?
+    sound-type: STATIC
+    # The id of the sound in the format of NAMESPACE:KEY
+    sound-key: "minecraft:music_disc.13"
+    # What is the volume of the sound from 0.0 - 2.0
+    volume: 1
+    # What is the pitch of the sound from 0.0 - 2.0
+    pitch: 1
+    # How long is the sound file in seconds?
+    duration: 60
+    # Should we repeat the sound after the duration?
+    repeat: true
+
+# Location Type and Dynamic Type Example
+region2:
+  # What type of Ambiance should be used?
+  ambiance-type: LOCATION
+  # Where will be the sound be played?
+  location: 117,34,-13
+  # Configure the sound setting
+  sound-setting:
+    # What type of sound should be used?
+    sound-type: STATIC
+    # The id of the sound in the format of NAMESPACE:KEY:TIME
+    sound-key: "minecraft:music_disc.ward"
+    # What is the volume of the sound from 0.0 - 2.0
+    volume: 1
+    # What is the pitch of the sound from 0.0 - 2.0
+    pitch: 1
+    # Should we repeat the sound after the duration?
+    repeat: true
+
+region3:
+  ambiance-type: FOLLOW
+  sound-setting:
+    sound-type: DYNAMIC
+    sound-key:
+      - "minecraft:music_disc.cat:60:0"
+      - "minecraft:music_disc.mall:60:2500"
+      - "minecraft:music_disc.wait:60:5000"
+    volume: 1
+    pitch: 1
+    duration: 60
