@@ -38,6 +38,10 @@ public class AmbianceManager {
         ambiancePlayerMap.remove(uniqueId);
     }
 
+    public void clearData() {
+        ambianceMap.clear();
+    }
+
 
 
 }

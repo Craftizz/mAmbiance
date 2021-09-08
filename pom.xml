@@ -9,7 +9,7 @@
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>MAmbiance</name>
+    <name>mAmbiance</name>
 
     <description>Custom Plugin of MinEconomy</description>
     <properties>
@@ -47,6 +47,26 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+
+                                <!-- Simplix Storage -->
+                                <relocation>
+                                    <pattern>de.leonhard.storage</pattern>
+                                    <shadedPattern>io.github.craftizz.mambiance.libraries.storage</shadedPattern>
+                                </relocation>
+
+                                <!-- Matt's Framework -->
+                                <relocation>
+                                    <pattern>me.mattstudios.mf</pattern>
+                                    <shadedPattern>io.github.craftizz.mambiance.libraries.mf</shadedPattern>
+                                </relocation>
+
+                                <relocation>
+                                    <pattern>dev.triumphteam.gui</pattern>
+                                    <shadedPattern>io.github.craftizz.mambiance.libraries.gui</shadedPattern>
+                                </relocation>
+
+                            </relocations>
                         </configuration>
                     </execution>
                 </executions>
@@ -77,6 +97,14 @@
             <id>sk89q-repo</id>
             <url>https://maven.enginehub.org/repo/</url>
         </repository>
+        <repository>
+            <id>placeholderapi</id>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
+        <repository>
+            <id>repo</id>
+            <url>https://repo.mattstudios.me/artifactory/public/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -103,6 +131,35 @@
             <artifactId>simplixstorage</artifactId>
             <version>3.2.2</version>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- Matt's framework - Used for handling commands -->
+        <dependency>
+            <groupId>me.mattstudios.utils</groupId>
+            <artifactId>matt-framework</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <!--Mini Message - Used for message handling -->
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-text-minimessage</artifactId>
+            <version>4.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--PlaceholderAPI - Used for placeholder support-->
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.10.10</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--MFGUI - Used for GUI handling -->
+        <dependency>
+            <groupId>dev.triumphteam</groupId>
+            <artifactId>triumph-gui</artifactId>
+            <version>3.0.3</version>
         </dependency>
 
     </dependencies>

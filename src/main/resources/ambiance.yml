@@ -8,13 +8,19 @@
 #
 ########################################################
 #
-#          SingleSound Type [ STATIC, DYNAMIC ]
+#          Sound Type [ STATIC, DYNAMIC ]
 #
 # 1. STATIC - Only one sound will be played
 # 2. DYNAMIC - Different sound depending on the time
 #
 ########################################################
 #
+# Note:
+# -   Volume means how far the player can hear
+#     the music from. This is useful when using
+#     the location ambiance
+#
+
 
 # Follow Type and Static Type Example
 region1:
@@ -26,7 +32,7 @@ region1:
     sound-type: STATIC
     # The id of the sound in the format of NAMESPACE:KEY
     sound-key: "minecraft:music_disc.13"
-    # What is the volume of the sound from 0.0 - 2.0
+    # How loud should the sound be?
     volume: 1
     # What is the pitch of the sound from 0.0 - 2.0
     pitch: 1
@@ -45,9 +51,9 @@ region2:
   sound-setting:
     # What type of sound should be used?
     sound-type: STATIC
-    # The id of the sound in the format of NAMESPACE:KEY:TIME
+    # The id of the sound in the format of NAMESPACE:KEY
     sound-key: "minecraft:music_disc.ward"
-    # What is the volume of the sound from 0.0 - 2.0
+    # How loud should the sound be?
     volume: 1
     # What is the pitch of the sound from 0.0 - 2.0
     pitch: 1
@@ -55,13 +61,35 @@ region2:
     repeat: true
 
 region3:
+  # What type of Ambiance should be used?
   ambiance-type: FOLLOW
+  # Configure the sound setting
   sound-setting:
+    # What type of sound should be used?
     sound-type: DYNAMIC
-    sound-key:
-      - "minecraft:music_disc.cat:60:0"
-      - "minecraft:music_disc.mall:60:2500"
-      - "minecraft:music_disc.wait:60:5000"
-    volume: 1
-    pitch: 1
-    duration: 60
+    # The sounds that will be played
+    sound-list:
+      # You can use any name
+      morning-music:
+        # The id of the sound in the format of NAMESPACE:KEY
+        sound-key: "minecraft:music_disc.cat"
+        # How long is the sound file?
+        duration: 60
+        # What time of day this should be played?
+        tick: 0
+        # How loud should the sound be?
+        volume: 1
+        # What is the pitch of the sound from 0.0 - 2.0
+        pitch: 1
+      afternoon-music:
+        sound-key: "minecraft:music_disc.mall"
+        duration: 60
+        tick: 2500
+        volume: 1
+        pitch: 1
+      evening-music:
+        sound-key: "minecraft:music_disc.wait"
+        duration: 60
+        tick: 5000
+        volume: 1
+        pitch: 1

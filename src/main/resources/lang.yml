@@ -1,0 +1,14 @@
+
+# This will be played when an action is successful
+success-sound: BLOCK_NOTE_BLOCK_BELL
+# This will be played when action is denied
+deny-sound: ENTITY_ENDERMAN_TELEPORT
+
+# Messages
+ambiance-enabled: "<color:#5FAB5C>Mineconomy Ambiance <color:#39E234>| <color:#949494>You enabled the ambiance feature"
+disabled-ambiance: "<color:#5FAB5C>Mineconomy Ambiance <color:#39E234>| <color:#949494>You disable the ambiance feature"
+already-enabled: "<color:#5FAB5C>Mineconomy Ambiance <color:#39E234>| <color:#949494>Your ambiance is already enabled!"
+already-disabled: "<color:#5FAB5C>Mineconomy Ambiance <color:#39E234>| <color:#949494>Your ambiance is already disabled!"
+already-voted: "<color:#5FAB5C>Mineconomy Nightclub <color:#39E234>| <color:#949494>Your already voted for this day! Come back in <time>!"
+not-song: "<color:#5FAB5C>Mineconomy Nightclub <color:#39E234>| <color:#949494><song> is not an available song!"
+vote-success: "<color:#5FAB5C>Mineconomy Nightclub <color:#39E234>| <color:#949494>You voted for <song>"

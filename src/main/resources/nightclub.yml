@@ -1,0 +1,27 @@
+
+nightclub:
+  # What is the region name of the nightclub?
+  region-name: "nightclub"
+  # Where should the music be played inside the region?
+  location: 5,50,5
+  # Every when should we shuffle the music?
+  interval: 60
+
+music:
+  music1:
+    # What will the name of the song be?
+    song-name: "Ward"
+    # What is the key name?
+    sound-key: "minecraft:music_disc.ward"
+    # How long is the sound file?
+    duration: 60
+    # How loud is the music?
+    volume: 50
+    # What is the pitch?
+    pitch: 1
+  music2:
+    song-name: "Mall"
+    sound-key: "minecraft:music_disc.mall"
+    duration: 60
+    volume: 50
+    pitch: 1

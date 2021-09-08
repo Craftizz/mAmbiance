@@ -21,35 +21,23 @@ public class FollowAmbiance extends Ambiance {
                           final @NotNull AmbiancePlayer ambiancePlayer) {
 
         final SoundWrapper soundWrapper = sound.getSound(ambiancePlayer);
-        Bukkit.getLogger().severe("(" + soundWrapper.getId() + ") Sound Name: " + soundWrapper.getSound().name());
 
         if (ambiancePlayer.isTheSame(soundWrapper.getId())) {
-
-            Bukkit.getLogger().warning("The same sound");
-
             if (ambiancePlayer.shouldRepeat()) {
-
-                Bukkit.getLogger().severe("Repeating Sound");
-
                 ambiancePlayer.setRepeatIn(soundWrapper.getDuration());
                 player.playSound(soundWrapper.getSound(), Sound.Emitter.self());
             }
-
         }
 
         else {
 
-            Bukkit.getLogger().info("Different Sound Playing");
-
-            if (ambiancePlayer.getSoundStop() != null) {
-                player.stopSound(ambiancePlayer.getSoundStop());
-            }
+            ambiancePlayer.stopSound(player);
 
             player.playSound(soundWrapper.getSound(), Sound.Emitter.self());
+
             ambiancePlayer.setSoundId(soundWrapper.getId());
             ambiancePlayer.setRepeatIn(soundWrapper.getDuration());
             ambiancePlayer.setSoundStop(soundWrapper.getSoundStop());
-
         }
     }
 

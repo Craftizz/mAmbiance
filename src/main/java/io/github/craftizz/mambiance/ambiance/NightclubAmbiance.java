@@ -3,28 +3,41 @@ package io.github.craftizz.mambiance.ambiance;
 import io.github.craftizz.mambiance.AmbiancePlayer;
 import io.github.craftizz.mambiance.ambiance.types.AbstractSound;
 import io.github.craftizz.mambiance.ambiance.types.wrapper.SoundWrapper;
-import org.bukkit.Bukkit;
+import net.kyori.adventure.sound.Sound;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class CoordinateAmbiance extends Ambiance {
+public class NightclubAmbiance {
+
+    private final String songId;
+    private final AbstractSound sound;
 
     private final int x;
     private final int y;
     private final int z;
 
-    public CoordinateAmbiance(final @NotNull String regionId,
-                              final @NotNull AbstractSound sound,
-                              final int x,
-                              final int y,
-                              final int z) {
-        super(regionId, sound);
+    private int votes;
+
+    public NightclubAmbiance(final @NotNull String songId,
+                             final @NotNull AbstractSound sound,
+                             int x,
+                             int y,
+                             int z) {
+        this.songId = songId;
+        this.sound = sound;
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    @Override
+    public void addVote() {
+        votes++;
+    }
+
+    public int getVotes() {
+        return votes;
+    }
+
     public void playSound(final @NotNull Player player,
                           final @NotNull AmbiancePlayer ambiancePlayer) {
 
@@ -35,31 +48,32 @@ public class CoordinateAmbiance extends Ambiance {
                 ambiancePlayer.setRepeatIn(soundWrapper.getDuration());
                 player.playSound(soundWrapper.getSound(), x, y, z);
             }
-
         }
 
         else {
 
-            ambiancePlayer.stopSound(player);
+            if (ambiancePlayer.getSoundStop() != null) {
+                ambiancePlayer.stopSound(player);
+            }
 
             player.playSound(soundWrapper.getSound(), x, y, z);
-
             ambiancePlayer.setSoundId(soundWrapper.getId());
             ambiancePlayer.setRepeatIn(soundWrapper.getDuration());
             ambiancePlayer.setSoundStop(soundWrapper.getSoundStop());
+
         }
 
     }
 
-    public int getX() {
-        return x;
+    public void resetVotes() {
+        this.votes = 0;
     }
 
-    public int getY() {
-        return y;
+    public String getSongId() {
+        return songId;
     }
 
-    public int getZ() {
-        return z;
+    public AbstractSound getSound() {
+        return sound;
     }
 }
